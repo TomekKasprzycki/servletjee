@@ -7,17 +7,12 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebServlet("/welcome")
-public class WelcomeServlet extends HttpServlet {
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
-    }
+@WebServlet("/servlet11")
+public class Servlet11 extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         response.setContentType("text/html");
-
-        String name = request.getParameter("name");
-        response.getWriter().println("<h1>Welcome " + name + "</h1>");
+        response.getWriter().println("<h2>First servlet (but not really first)</h2>");
         System.out.println("Przyszło żadanie od klienta!");
     }
 }

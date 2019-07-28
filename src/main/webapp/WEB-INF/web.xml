@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee
+         http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd" version="4.0">
+    <welcome-file-list>
+        <welcome-file>welcome.html</welcome-file>
+    </welcome-file-list>
+
+<!--    to poniżej zastępuje adnotację. teraz stosuje się adnotacje, ale w starszych projektach moze być tak:-->
+<!--    <servlet>-->
+<!--        <servlet-name>WelcomeServlet</servlet-name>-->
+<!--        <servlet-class>pl.coderslab.WelcomeServlet</servlet-class>-->
+<!--    </servlet>-->
+<!--    <servlet-mapping>-->
+<!--        <servlet-name>WelcomeServlet</servlet-name>-->
+<!--        <url-pattern>/welcome</url-pattern>-->
+<!--    </servlet-mapping>-->
+
+    <servlet>
+        <servlet-name>Servlet12</servlet-name>
+        <servlet-class>pl.coderslab.Servlet12</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Servlet12</servlet-name>
+        <url-pattern>/servlet12</url-pattern>
+    </servlet-mapping>
+
+
+
+</web-app>

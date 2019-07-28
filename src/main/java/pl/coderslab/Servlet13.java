@@ -6,18 +6,16 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.time.LocalDate;
 
-@WebServlet("/welcome")
-public class WelcomeServlet extends HttpServlet {
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+@WebServlet("/servlet13")
+public class Servlet13 extends HttpServlet {
 
-    }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         response.setContentType("text/html");
+        response.getWriter().append("<p>Todey is: " + LocalDate.now().toString() + "</p>");
+        response.getWriter().append("Request send from IP: " + request.getRemoteAddr() + "</p>");
 
-        String name = request.getParameter("name");
-        response.getWriter().println("<h1>Welcome " + name + "</h1>");
-        System.out.println("Przyszło żadanie od klienta!");
     }
 }
