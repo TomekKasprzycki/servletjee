@@ -7,5 +7,22 @@
 <body>
 <p><h1><b>To jest moja pierwsza apka!</b></h1></p>
 <p>Testujemy JEE</p>
+<form action="/servletjee/get4" method="GET">
+    <label>
+        Page:
+        <input type="text" name="page">
+    </label>
+    <input type="submit" value="Wyślij">
+</form>
+
+<a href="/servetjee/get5?company=coderslab&learn=php&learn=java&learn=ruby&learn=python">Text link</a>
+
+<form>
+    Wybierz formę płatności:
+    <input type="radio" name="payment" value="card" checked>Karta kredytowa
+    <input type="radio" name="payment" value="cash">Gotówka
+    <input type="radio" name="payment" value="transfer">Przelew
+</form>
+
 </body>
 </html>
