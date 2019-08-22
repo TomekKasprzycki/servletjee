@@ -29,15 +29,15 @@ public class UserAgentFilter implements Filter {
 
         Log log = new Log(userAgent,userName,startTime,stopTime);
 
-        try {
-            if (logDAO.writeApplicationLogs(log)){
-                System.out.println("Zapisano");
-            }else {
-                System.out.println("Nie zapisano");
-            }
-        }catch (SQLException e){
-            e.printStackTrace();
-        }
+//        try {
+//            if (logDAO.writeApplicationLogs(log)){
+//                System.out.println("Zapisano");
+//            }else {
+//                System.out.println("Nie zapisano");
+//            }
+//        }catch (SQLException e){
+//            e.printStackTrace();
+//        }
 
     }
 
