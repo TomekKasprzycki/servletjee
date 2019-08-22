@@ -25,7 +25,7 @@ public class Post2 extends HttpServlet {
 
         PrintWriter writer = response.getWriter();
         if (answerStr==null){
-            String[] words = phrase.split(" ;,\\.");
+            String[] words = phrase.split("[ ;,\\.!?]");
             for (String word:words){
                 if (illegalWordsList.contains(word)){
                     StringBuilder sb = new StringBuilder();

@@ -17,9 +17,12 @@ public class Cookie4Show extends HttpServlet {
         PrintWriter writer = response.getWriter();
 
         if (cookies!=null) {
+            writer.append("<html><body>");
             for (Cookie cookie : cookies) {
-                writer.append(cookie.getName() + ", " + cookie.getValue() + "; "); //+ button do usunięcia
+                writer.append("<p>" + cookie.getName() + ", " + cookie.getValue() + "</p>"); //+ button do usunięcia
             }
+            writer.append("</body></html>");
+            response.setContentType("text/html");
         } else {
             writer.append("Nie ma ciasteczek!");
         }
