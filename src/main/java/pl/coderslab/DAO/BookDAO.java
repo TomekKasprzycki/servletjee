@@ -19,8 +19,7 @@ public class BookDAO {
 
     private BookDAO() throws SQLException, ClassNotFoundException {
         String className = "com.mysql.cj.jdbc.Driver";
-        Class.forName(className); // THIS IS THE SHIT
-        // ​
+        Class.forName(className);
         BookDAO.instance = this;
         connection = DriverManager.getConnection(BookDAO.URL, BookDAO.USER, BookDAO.PASSWORD);
     }

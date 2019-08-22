@@ -16,17 +16,17 @@ import java.util.List;
 public class mvcjdbc03 extends HttpServlet {
     private int HTTP_ERROR = 500;
 
-//    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-//
-//        try {
-//            List<Book> books = BookDAO.getInstance().getAllBooks();
-//            request.setAttribute("books",books);
-//        }catch (SQLException|ClassNotFoundException e){
-//            response.sendError(HTTP_ERROR,e.getMessage());
-//        }
-//
-//        getServletContext().getRequestDispatcher("/jdbc2.jsp").forward(request,response);
-//    }
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+        try {
+            List<Book> books = BookDAO.getInstance().getAllBooks();
+            request.setAttribute("books",books);
+        }catch (SQLException|ClassNotFoundException e){
+            response.sendError(HTTP_ERROR,e.getMessage());
+        }
+
+        getServletContext().getRequestDispatcher("/jdbc2.jsp").forward(request,response);
+    }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         try {

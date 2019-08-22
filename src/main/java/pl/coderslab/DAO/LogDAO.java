@@ -4,27 +4,26 @@ import pl.coderslab.Model.Log;
 
 import java.sql.*;
 
-public class logDAO {
+public class LogDAO {
 
     private static final String URL =
             "jdbc:mysql://localhost:3306/websitelogs?useSSL=false&characterEncoding=utf8&serverTimezone=CET&allowPublicKeyRetrieval=true";
     private static final String USER = "root";
     private static final String PASSWORD = "coderslab";
-    private static logDAO instance;
+    private static LogDAO instance;
     private Connection connection;
     private String qryAddData = "INSERT INTO webLogs (logStartDate, logEndDate, userAgent, userName) VALUES (?,?,?,?)";
 
-    private logDAO() throws SQLException, ClassNotFoundException {
+    private LogDAO() throws SQLException, ClassNotFoundException {
         String className = "com.mysql.cj.jdbc.Driver";
-        Class.forName(className); // THIS IS THE SHIT
-        // ​
-        logDAO.instance = this;
-        connection = DriverManager.getConnection(logDAO.URL, logDAO.USER, logDAO.PASSWORD);
+        Class.forName(className);
+        LogDAO.instance = this;
+        connection = DriverManager.getConnection(LogDAO.URL, LogDAO.USER, LogDAO.PASSWORD);
     }
 
-    public logDAO getInstance() throws SQLException, ClassNotFoundException {
+    public static LogDAO getInstance() throws SQLException, ClassNotFoundException {
         if (instance == null) {
-            instance = new logDAO();
+            instance = new LogDAO();
         }
         return instance;
     }

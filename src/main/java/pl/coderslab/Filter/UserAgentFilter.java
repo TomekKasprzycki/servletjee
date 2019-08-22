@@ -1,6 +1,6 @@
 package pl.coderslab.Filter;
 
-import pl.coderslab.DAO.logDAO;
+import pl.coderslab.DAO.LogDAO;
 import pl.coderslab.Model.Log;
 
 import javax.servlet.*;
@@ -29,15 +29,18 @@ public class UserAgentFilter implements Filter {
 
         Log log = new Log(userAgent,userName,startTime,stopTime);
 
-//        try {
-//            if (logDAO.writeApplicationLogs(log)){
-//                System.out.println("Zapisano");
-//            }else {
-//                System.out.println("Nie zapisano");
-//            }
-//        }catch (SQLException e){
-//            e.printStackTrace();
-//        }
+
+
+        try {
+            LogDAO logDAO = LogDAO.getInstance();
+            if (logDAO.writeApplicationLogs(log)){
+                System.out.println("Zapisano");
+            }else {
+                System.out.println("Nie zapisano");
+            }
+        }catch (SQLException | ClassNotFoundException e){
+            e.printStackTrace();
+        }
 
     }
 

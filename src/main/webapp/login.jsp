@@ -5,7 +5,7 @@
 </head>
 <body>
 
-<form>
+<form method="post" action="/servletjee/LoginServlet">
     <label>Podaj login</label>
     <input type="text" name="login">
     <label>Podaj hasło</label>

@@ -6,6 +6,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.sql.SQLException;
+
 import pl.coderslab.Model.Book;
 import pl.coderslab.DAO.BookDAO;
 
@@ -16,11 +18,17 @@ public class Mvc13 extends HttpServlet {
         String title = request.getParameter("title");
         String isbn = request.getParameter("isbn");
 
-        Book book = new Book(author,title,isbn);
-//        BookDAO.addBook(author,title,isbn);
+        Book book = new Book(author, title, isbn);
 
-        request.setAttribute("book",book);
-        getServletContext().getRequestDispatcher("/mvc/result.jsp").forward(request,response);
+        try {
+            BookDAO bookDAO = BookDAO.getInstance();
+            bookDAO.addBook(book);
+            request.setAttribute("book", book);
+            getServletContext().getRequestDispatcher("/mvc/result.jsp").forward(request, response);
+        } catch (SQLException | ClassNotFoundException e){
+            e.printStackTrace();
+        }
+
 
     }
 
